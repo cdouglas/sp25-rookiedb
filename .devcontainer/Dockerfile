@@ -1,1 +1,1 @@
-FROM mcr.microsoft.com/devcontainers/java:1-11-bullseye
+FROM mcr.microsoft.com/devcontainers/base:ubuntu

@@ -28,6 +28,7 @@
     <build>
         <plugins>
             <plugin>
+                <!-- https://www.mojohaus.org/javacc-maven-plugin/jjtree-javacc-mojo.html -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>javacc-maven-plugin</artifactId>
                 <version>${javacc-plugin.version}</version>
@@ -43,23 +44,10 @@
                     <id>run-jjtree</id>
                     <phase>generate-sources</phase>
                     <goals>
-                      <goal>jjtree</goal>
+                      <goal>jjtree-javacc</goal>
                     </goals>
                     <configuration>
                       <verbose>false</verbose>
-                      <sourceDirectory>src/main/jjtree</sourceDirectory>
-                      <outputDirectory>target/generated-sources/jjtree</outputDirectory>
-                    </configuration>
-                  </execution>
-                  <execution>
-                    <id>run-javacc</id>
-                    <phase>generate-sources</phase>
-                    <goals>
-                      <goal>javacc</goal>
-                    </goals>
-                    <configuration>
-                      <sourceDirectory>target/generated-sources/jjtree</sourceDirectory>
-                      <outputDirectory>target/generated-sources/javacc</outputDirectory>
                     </configuration>
                   </execution>
                 </executions>

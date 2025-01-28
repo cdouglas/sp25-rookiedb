@@ -21,11 +21,49 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <proj></proj>
+        <javacc-plugin.version>3.0.1</javacc-plugin.version>
+        <javacc.version>7.0.13</javacc.version>
     </properties>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javacc-maven-plugin</artifactId>
+                <version>${javacc-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.java.dev.javacc</groupId>
+                        <artifactId>javacc</artifactId>
+                        <version>${javacc.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                  <execution>
+                    <id>run-jjtree</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                      <goal>jjtree</goal>
+                    </goals>
+                    <configuration>
+                      <verbose>false</verbose>
+                      <sourceDirectory>src/main/jjtree</sourceDirectory>
+                      <outputDirectory>target/generated-sources/jjtree</outputDirectory>
+                    </configuration>
+                  </execution>
+                  <execution>
+                    <id>run-javacc</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                      <goal>javacc</goal>
+                    </goals>
+                    <configuration>
+                      <sourceDirectory>target/generated-sources/jjtree</sourceDirectory>
+                      <outputDirectory>target/generated-sources/javacc</outputDirectory>
+                    </configuration>
+                  </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

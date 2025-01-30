@@ -12,7 +12,17 @@ This provides less isolation than a VM, but is an option for students who are ha
 
 ## Intellij IDEA Ultimate
 
+### After Install
+
+As of this writing, Intellij is configured to use the [EAP](https://www.jetbrains.com/idea/nextversion/) (early access) version of its IDE to connect to the container by default. The EAP version is the beta version of the IDE that is not only less stable, its license also expires after 30-45 days. To disable this, go to `Settings > Advanced Settings` and uncheck the box "Always use the latest backend."
+
+![Screenshot - Uncheck "Always use the latest backend."](images/ij-0.png)
+
+This is detailed in the knowledge base article [here](https://youtrack.jetbrains.com/articles/SUPPORT-A-551).
+
 As of this writing, development containers are only supported in the [Ultimate edition](https://www.jetbrains.com/idea/) of Intellij IDEA. Students can obtain a free, non-commercial license [here](https://www.jetbrains.com/community/education/#students) using their university address.
+
+### Creating the Dev Container
 
 Start the IDE and navigate to "Dev Containers":
 
@@ -27,10 +37,6 @@ Use the address of the rookiedb repository for the relevant project, as describe
 ![Screenshot - Copy Repository location](images/ij-3.png)
 
 Click "Build container" and wait Docker to download and build the image.
-
-### Expiration and Early Access
-
-As of this writing, Intellij is configured to use the [EAP](https://www.jetbrains.com/idea/nextversion/) (early access) version of its IDE to connect to the container by default. The EAP version is the beta version of the IDE that is not only less stable, its license also expires after 30-45 days. To disable this, go to `Settings > Advanced Settings` and uncheck the box "Always use the latest backend." This is detailed in the knowledge base article [here](https://youtrack.jetbrains.com/articles/SUPPORT-A-551).
 
 ## Visual Studio Code (local)
 
